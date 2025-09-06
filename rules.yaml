@@ -1,0 +1,54 @@
+# MalNet Guard rules — tune to your environment
+exfil:
+  window_seconds: 10         # short sampling window (seconds) for quick scans
+  bytes_out_threshold: 50000000   # 50 MB during window => flag
+  suspect_ports: [20,21,23,69,445,3389,5900,6667,31337,25565,65000]
+
+listen_suspicious_ports: [23,2323,31337,1337,4444,5555,6666,6697]
+
+# Local reputation overrides
+blocklist_ips: ["185.220.101.0", "45.155.205.233"]
+allowlist_ips: ["1.1.1.1", "8.8.8.8"]
+
+# Tags for reporting context
+tag_ports:
+  ssh: [22,2222]
+  rdp: [3389]
+  vnc: [5900,5901]
+  db: [1433,1521,3306,5432,27017]
+
+
+# Plugin configuration
+plugins:
+  dns_resolver_health:
+    enabled: true
+    require_corporate_dns: false   # set true if corporate policy forbids public DNS
+  firewall_posture:
+    enabled: true
+  autoruns_overview:
+    enabled: true
+  gateway_mac_allowlist:
+    enabled: false
+    allowed_macs: ["aa:bb:cc:dd:ee:ff"]  # set to your real gateway MAC(s)
+
+
+# Advanced plugins
+plugins:
+  process_image_integrity:
+    enabled: true
+    allow_hashes: []   # SHA256 of trusted binaries
+  tls_inspection:
+    enabled: true
+  gateway_drift_monitor:
+    enabled: true
+
+
+# Additional plugin defaults
+plugins:
+  process_image_integrity:
+    enabled: true
+    allow_hashes: []   # populate with known-good SHA-256s
+  tls_inspection:
+    enabled: true
+  dhcp_gateway_drift:
+    enabled: true
