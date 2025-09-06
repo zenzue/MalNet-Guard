@@ -1,0 +1,4 @@
+ABUSEIPDB_API_KEY=
+VT_API_KEY=
+SHODAN_API_KEY=
+# DOTENV_PATH=/etc/malnet_guard.env
