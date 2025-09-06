@@ -1,5 +1,6 @@
 # MalNet Guard
-**Author:** w01f • 
+**Author:** w01f
+
 **Purpose:** Detect signs of malware infection and data exfiltration by auditing active network connections across Windows, Linux, and macOS.
 
 ## Highlights
