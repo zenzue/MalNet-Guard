@@ -1,5 +1,6 @@
 # MalNet Guard
-**Author:** w01f • **Purpose:** Detect signs of malware infection and data exfiltration by auditing active network connections across Windows, Linux, and macOS.
+**Author:** w01f • 
+**Purpose:** Detect signs of malware infection and data exfiltration by auditing active network connections across Windows, Linux, and macOS.
 
 ## Highlights
 - Cross‑platform via `psutil`; gracefully falls back to parsing `ss`/`netstat` if available.
